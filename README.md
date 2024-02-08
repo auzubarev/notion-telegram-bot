@@ -1,2 +1,29 @@
-# notion-telegram-bot
-Small PHP script for creating notes in Notion using a Telegram bot.
+# Notion телеграм бот
+Скрипт позволяет создать телеграм бота для быстрого добавления заметок в Notion.
+
+## Установка
+- Распаковать файлы на сервер.
+- Переименовать `config.example.php` в `config.php`.
+- Установить параметры в `config.php`.
+
+## Параметры и настройка
+
+### TG_TOKEN
+1. Зарегистрируйте нового бота, написав команду /newbot @BotFather.
+2. Отправьте название для бота.
+3. В ответ получите токен (TG_TOKEN).
+
+### TG_SECRET и установка webhook
+Установите «webhook», чтобы все сообщения отправлялись на ваш скрипт.
+Для этого перейдите по ссылке вида: `https://api.telegram.org/bot<TG_TOKEN>/setWebhook?url=https://example.com/notion_bot.php&secret_token=<TG_SECRET>`.
+Выберите произвольный TG_SECRET. Эта строка будет передаваться в скрипт с каждым сообщением для подтверждения, что оно было отправлено через бота.
+
+### NOTION_TOKEN
+Создайте интеграцию в Notion и получите токен на https://developers.notion.com/docs/authorization.
+
+Добавьте интеграцию на страницу.
+После добавления интеграции вы сможете получить доступ к любой её подстранице.
+![Добавление интеграции на страницу](https://files.readme.io/fefc809-permissions.gif)
+
+### NOTION_DATABASE
+Для получения NOTION_DATABASE (id базы данных или страницы) возьмите часть ее ссылки между символами «/» и «?».
